@@ -1,3 +1,5 @@
+Experiments in RTSP and JPEG streaming. I'm generating RGB data on the fly, compressing it as a JPEG, and streaming it over RTSP. Unsure of framerate/performance. Investigations into creating a Luma3DS plugin for remote viewing/capture.
+
 # Micro-RTSP
 
 This is a small library which can be used to serve up RTSP streams from
