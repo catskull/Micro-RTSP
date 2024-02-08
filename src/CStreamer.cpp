@@ -295,6 +295,9 @@ void CStreamer::streamFrame(unsigned const char *data, uint32_t dataLen, uint32_
 // therefore 4:2:2, with two separate quant tables (0 and 1)
 // SOS da
 // EOI d9 (no need to strip data after this RFC says client will discard)
+
+// if(!findJPEGheader(&bytes, len, 0xd8))
+
 bool findJPEGheader(BufPtr *start, uint32_t *len, uint8_t marker) {
     // per https://en.wikipedia.org/wiki/JPEG_File_Interchange_Format
     unsigned const char *bytes = *start;
@@ -305,7 +308,7 @@ bool findJPEGheader(BufPtr *start, uint32_t *len, uint8_t marker) {
     while(bytes - *start < *len) {
         uint8_t framing = *bytes++; // better be 0xff
         if(framing != 0xff) {
-            printf("malformed jpeg, framing=%x\n", framing);
+            printf("malformed jpeg, framing=%x, bytes=%x\n", framing, *bytes);
             return false;
         }
         uint8_t typecode = *bytes++;

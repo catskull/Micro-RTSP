@@ -6,6 +6,6 @@
 
 #ifdef INCLUDE_SIMDATA
 extern unsigned const char capture_jpg[];
-extern unsigned const char octo_jpg[];
-extern unsigned int octo_jpg_len, capture_jpg_len;
+extern unsigned const char test_jpg[];
+extern unsigned int test_jpg_len, capture_jpg_len;
 #endif
